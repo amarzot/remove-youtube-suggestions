@@ -25,7 +25,6 @@
         "/shared/main.js",
         "/shared/https.js",
         "/shared/utils.js",
-        "/shared/banners.js",
         "/content-script/main.js"
       ],
       "css": ["/content-script/main.css"],

@@ -15,7 +15,6 @@ let currentUrl;
 
 document.addEventListener("DOMContentLoaded", () => {
   recordEvent('Page View: Options');
-  initAnnouncementBanner();
   browser.storage.local.get(localSettings => {
     const revealUpdates = migrateRevealSettings(localSettings);
     if (Object.keys(revealUpdates).length) {
@@ -439,23 +438,6 @@ document.addEventListener('visibilitychange', () => {
     }
   }
 });
-
-
-// Announcement banners
-function initAnnouncementBanner() {
-  const container = document.getElementById('banner_container');
-  if (!container) return;
-
-  const logoUrl = browser.runtime.getURL('images/rys.svg');
-  const banners = getActiveBanners('options');
-
-  banners.forEach(banner => {
-    initBanner(banner, logoUrl, () => ({
-      element: container,
-      insertMethod: 'append'
-    }));
-  });
-}
 
 
 // Logging opt-in banner

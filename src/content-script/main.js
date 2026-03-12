@@ -578,23 +578,6 @@ document.addEventListener('visibilitychange', () => {
 });
 
 
-function injectAnnouncementBanners() {
-  if (!onHomepage) return;
-  if (!document.body) return;
-
-  const logoUrl = browser.runtime.getURL('images/rys.svg');
-  const banners = getActiveBanners('youtube_homepage');
-
-  banners.forEach(banner => {
-    initBanner(banner, logoUrl, () => ({
-      element: document.body,
-      insertMethod: 'prepend'
-    }));
-  });
-}
-
-
-
 function handleNewPage() {
   const on = cache['global_enable'] === true;
 
@@ -659,7 +642,6 @@ function handleNewPage() {
     }
   }
 
-  injectAnnouncementBanners();
   requestRunDynamicSettings();
 }
 
